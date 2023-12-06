@@ -1,7 +1,6 @@
 import settings
 
-
-class Horse(object):
+class Horse:
     """
     Атрибуты лошадей
     """
@@ -15,19 +14,12 @@ class Horse(object):
         self.power = power
         self.speed = speed
 
-
-class HorseCreator(Horse):
-    """
-    создает экземпляры лошади
-    """
-    def horse_creator(*args):
-        new_horse = [settings.NAMEHORSE, settings.POWERHORSE, settings.SPEEDHORSE]
-
-
 def main():
-    HorseCreator.horse_creator()
+    horses = {}
+    for i in range(1, 3):
+        h = Horse(name_horse=settings.name_horse(), power=settings.power_horse(), speed=settings.max_speed_horse())
+        horses[i] = h.name_horse, h.power, h.speed
 
 
 if __name__ == "__main__":
     main()
-
