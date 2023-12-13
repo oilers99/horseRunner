@@ -1,9 +1,12 @@
 import pygame
+pygame.init()
 """Размер окна"""
-size_windows = (1600, 800)
+SIZE_WINDOWS = (1600, 800)
 """Заголовок окна"""
-name_windows = "_HorseRacer_"
+NAME_WINDOWS = "_HorseRacer_"
 """Икона окна"""
-icon_windows = None
+ICON_WINDOWS = None
 """Шрифт и размер для теста"""
-font = pygame.font.SysFont('arial', 32)
+FONT = pygame.font.SysFont('arial', 32)
+"""FPS var"""
+FPS_VAR = 60
