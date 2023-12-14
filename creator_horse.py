@@ -29,10 +29,10 @@ def creator():
     Создан необходимого кол-во экземпляров Horse
     """
     horses = {}
-    for i in range(1, 3):
+    for i in range(1, 25):
         h = Creator()
         # Решение без класса Creator
-        # h = Horse(name_horse=settings.name_horse(), power=settings.power_horse(), speed=settings.max_speed_horse())
+        # horses = Horse(name_horse=settings.name_horse(), power=settings.power_horse(), speed=settings.max_speed_horse())
         horses[i] = h.name_horse, h.power, h.speed
     print(horses)
 

@@ -20,7 +20,9 @@ def name_horse():
                        "Петров и Баширов", "Успешный Успех", "Сосули", "Икра Красная", "Икра Чёрная", "Икра",
                        "Единая Россия", "Самка Богомола", "Валька- Стакан", "Леонид", "Акакий", "Егорка",
                        "Усы Пескова", "Лохматый Чебурашка", "Эльвира Сахипзадовна"]
-    return str(random.choice(name_horse_list))
+    name_horse_random = random.choice(name_horse_list)
+    name_horse_list.remove(name_horse_random)
+    return str(name_horse_random)
 
 def power_horse():
     """
