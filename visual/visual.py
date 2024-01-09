@@ -1,170 +1,123 @@
 import pygame
 import visual_settings
 import os
+pygame.init()
 
-
-class SetUpCanvas:
-    """
-    Настройки отображения окна
-    screen: размер
-    name: имя окна
-    font: шрифт и размер
-    os: выравнивание по центру
-    """
+class StartWindows:
     def __init__(self):
-        self.screen = None
-        self.name = None
-        self.font = None
+        self.running = True
+        self.clock = pygame.time.Clock()
+        self.set_up_canvas()
+        self.prompt = Prompt(visual_settings.INPUT_FIELD_COLOR,
+                             (20, 70, 315, 25),
+                             (350 // 2),
+                             ((70 * 0.7) + 70 // 2),
+                             visual_settings.START_TEXT_COLOR)
+        self.text_1 = Text(self.font, text=visual_settings.TEXT_NUM_PLAYERS,
+                           color_text=visual_settings.START_TEXT_COLOR,
+                           pos_x= 20, pos_y= 30,
+                           screen=self.screen)
+        self.launch()
 
-    def set_up_canvas(self, screen, name, font):
-        self.screen = pygame.display.set_mode(screen)
-        pygame.display.set_caption(name)
-        self.font = font
+
+    def set_up_canvas(self):
+        self.screen = pygame.display.set_mode(visual_settings.SIZE_START_WINDOWS)
+        pygame.display.set_caption(visual_settings.NAME_START_WINDOWS)
+        self.font = visual_settings.FONT_START_WINDOWS
         os.environ['SDL_VIDEO_CENTERED'] = '1'
 
-
-class Launch:
-    """
-    обработка циклов и отслеж нажатий кнопок
-    """
-    def __init__(self):
-        self.clock = None
-        self.running = None
-
     def launch(self):
-        """
-        цикл обновления
-        """
         while self.running:
-            self.game_events()
+            self.game_event()
             self.clock.tick(visual_settings.FPS_VAR)
+            self.draw()
 
-    def game_events(self):
-        """
-        отслеживание нажатия клавиш
-        """
+    def game_event(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
             if event.type == pygame.KEYDOWN:
-                self.handle_kay_press(event.key)
-                
-    def handle_kay_press(self, key):
-        """
-        обработка нажатия клавиш
-        """
+                self.kay_press(event.key)
+
+    def kay_press(self, key):
         if key == pygame.K_ESCAPE:
             self.running = False
-
-        elif key == pygame.K_BACKSPACE:
-            pass
-
-        elif 49 <= key <= 57:
-            pass
-
-        elif key == pygame.K_RETURN:
-            pass
-
-
-class Button:
-    def __init__(self, x, y, width, height, button_text=None, on_click_function=None, one_press=False):
-        pygame.init()
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
-        self.button_text = button_text
-        self.on_click_Function = on_click_function
-        self.one_press = one_press
-        self.already_pressed = False
-
-        self.fill_colors = {
-            'normal': '#ffffff',
-            'hover': '#666666',
-            'pressed': '#333333',
-        }
-
-    def render(self):
-        pass
-
-
-class Game(SetUpCanvas, Launch):
-    """
-    основное окно игры
-    """
-    def __init__(self):
-        super().__init__()
-        pygame.init()
-        self.set_up_canvas(visual_settings.SIZE_MAIN_WINDOWS, visual_settings.NAME_MAIN_WINDOWS,
-                           visual_settings.MAIN_FONT)
-        self.running = True
-        self.start_new_game()
-        self.clock = pygame.time.Clock()
-
-    def start_new_game(self):
-        """
-        Пока что только перевенная для последующего вывода победителя
-        """
-        self.winner = []
-
-    def __del__(self):
-        """
-        pygame close
-        """
-        pygame.quit()
-
-
-class StartWindows(SetUpCanvas, Launch):
-    """
-    Стартовое окно
-    после ввода количества играков передает в Game
-    и закрывается
-    """
-    def __init__(self):
-        super().__init__()
-        pygame.init()
-        self.set_up_canvas(visual_settings.SIZE_START_WINDOWS, visual_settings.NAME_START_WINDOWS,
-                           visual_settings.FONT_START_WINDOWS)
-        self.clock = pygame.time.Clock()
-        self.running = True
-        self.draw()
-
-    def launcher(self):
-        """запуск"""
-        self.launch()
-
-    def handle_kay_press(self, key):
-        """
-        переопределение функции
-        запуск основного окна
-        """
-        if key == pygame.K_RETURN:
-            """запуск основного окна, закрытие стартового окна"""
-            class_game_start = Game()
-            class_game_start.launch()
-            self.running = False
+        if 50 <= key <= 56:
+            self.prompt.value = str(key - 48)
+            print(self.prompt.value)
 
     def draw(self):
-        self.screen.fill(visual_settings.START_BG_COLOR)
-        self.prompt()
-        self.button_ok()
+        self.bg_color()
+        self.prompt.input(self.screen, self.font)
+        self.text_1.draw_text()
         pygame.display.flip()
 
-    def prompt(self):
-        """
-        поле ввода количество играков
-        """
-        num_players = self.font.render(visual_settings.TEXT_NUM_PLAYERS, True, visual_settings.START_TEXT_COLOR)
-        text_rect = num_players.get_rect()
-        text_rect.x, text_rect.y = 20, 30
-        self.screen.blit(num_players, text_rect)
-
-    def button_ok(self):
-        """
-        кнопка передает количество играков в логику и отрисовку
-        """
-        pass
+    def bg_color(self):
+        self.screen.fill(visual_settings.START_BG_COLOR)
 
 
-starting_start_windows = StartWindows()
-starting_start_windows.launcher()
+class Prompt:
+    """
+    поле ввода текста
+    """
+
+    def __init__(self, input_field_color, rect, centre_x, centre_y, text_color):
+        """
+        @param input_field_color: цвет поля ввода. кортеж РГБ
+        @param rect: размер поля ввода кортеж (х, у, длинна, ширина)
+        @param centre_x: центровка вывода текста по Х число или формула
+        @param centre_y: центровка вывода текста  по У число или формула
+        @param text_color: цвет текста вывода. кортеж РГБ
+        """
+        # вывод текста
+        self.value = ""
+
+        self.input_field_color = input_field_color
+        self.rect = rect
+        self.centre_x = centre_x
+        self.centre_y = centre_y
+        self.text_color = text_color
+
+    def input(self, screen, font):
+        """
+        @param screen: in draw self.screen поле где рисовать
+        @param font: in draw self.font шрифт окна
+        """
+        pygame.draw.rect(screen, self.input_field_color, self.rect)
+        text_input = font.render(self.value, True, self.text_color)
+        text_input_rect = text_input.get_rect()
+        text_input_rect.centerx = self.centre_x
+        text_input_rect.centery = self.centre_y
+        screen.blit(text_input, text_input_rect)
+
+
+class Text:
+    """
+    отрисовка текста на окне
+    """
+    def __init__(self, font, text, color_text, pos_x, pos_y, screen):
+        """
+        @param font: шрифт
+        @param text: текст
+        @param color_text: цвет текста
+        @param pos_x: позиция Х
+        @param pos_y: позиция У
+        @param screen: окно на котором рисовать
+        """
+        self.font = font
+        self.text = text
+        self.color_text = color_text
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+        self.screen = screen
+
+    def draw_text(self):
+        text = self.font.render(self.text, True, self.color_text)
+        text_rect = text.get_rect()
+        text_rect.x = self.pos_x
+        text_rect.y = self.pos_y
+        self.screen.blit(text, text_rect)
+
+
+start_windows = StartWindows()
+

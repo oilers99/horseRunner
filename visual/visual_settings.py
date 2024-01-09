@@ -30,8 +30,10 @@ FONT_START_WINDOWS = pygame.font.SysFont('arial', 20)
 """Текст запроса количества играков"""
 TEXT_NUM_PLAYERS = "Введите количество играков (2-8)"
 """цвет стартового БГ"""
-START_BG_COLOR = (255, 255, 255)
+START_BG_COLOR = (240, 240, 240)
 START_TEXT_COLOR = (0, 0, 0)
+INPUT_FIELD_COLOR = (255, 255, 255)
+
 
 
 """
