@@ -20,20 +20,22 @@ MAIN_FONT = pygame.font.SysFont('arial', 32)
 """
 """Размер стартового окна"""
 size_start_x, size_start_y = 350, 200
-SIZE_START_WINDOWS = (size_start_x, size_start_y)
+SW_SIZE_START_WINDOWS = (size_start_x, size_start_y)
 """Заголовок окна"""
-NAME_START_WINDOWS = "_HorseRacer_"
+SW_NAME_START_WINDOWS = "_HorseRacer_"
 """Икона окна"""
-ICON_START_WINDOWS = None
+SW_ICON_START_WINDOWS = None
 """Шрифт и размер для теста"""
-FONT_START_WINDOWS = pygame.font.SysFont('arial', 20)
+SW_FONT_START_WINDOWS = pygame.font.SysFont('arial', 20)
 """Текст запроса количества играков"""
-TEXT_NUM_PLAYERS = "Введите количество играков (2-8)"
-"""цвет стартового БГ"""
-START_BG_COLOR = (240, 240, 240)
-START_TEXT_COLOR = (0, 0, 0)
-INPUT_FIELD_COLOR = (255, 255, 255)
-
+SW_TEXT_NUM_PLAYERS = "Введите количество играков (2-8)"
+"""цвет стартового окна"""
+SW_START_BG_COLOR = (240, 240, 240)
+SW_START_TEXT_COLOR = (0, 0, 0)
+SW_INPUT_FIELD_COLOR = (255, 255, 255)
+SW_BUTTON_INACTIVE_COLOR = (150,150,150)
+SW_BUTTON_ACTIVE_COLOR = (200,200,200)
+SW_BUTTON_TEXT_COLOR = (0,0,0)
 
 
 """

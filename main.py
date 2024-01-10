@@ -3,8 +3,8 @@ import settings
 
 
 def main():
-    creator_horse.creator()
-
+    # creator_horse.creator()
+    pass
 
 if __name__ == "__main__":
     main()
