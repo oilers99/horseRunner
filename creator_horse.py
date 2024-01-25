@@ -1,18 +1,5 @@
 import settings
 
-# class Horse:
-#     """
-#     Атрибуты лошадей
-#     """
-#     def __init__(self, name_horse, power, speed):
-#         """
-#         :param name_horse: str
-#         :param power: int
-#         :param speed: int
-#         """
-#         self.name_horse = name_horse
-#         self.power = power
-#         self.speed = speed
 
 class Creator:
     """
@@ -23,17 +10,8 @@ class Creator:
         self.power = settings.power_horse()
         self.speed = settings.max_speed_horse()
 
-
-    def creator(self, number_of_horses):
-        """
-        Создан необходимого кол-во экземпляров Horse
-        """
-        horses = {}
+    def name_creator(self, number_of_horses):
+        self.list_name_horse = []
         for i in range(number_of_horses):
-            horse = Creator()
-            # Решение без класса Creator
-            # horses = Horse(name_horse=settings.name_horse(), power=settings.power_horse(), speed=settings.max_speed_horse())
-            horses[i] = horse.name_horse, horse.power, horse.speed
-        print(horses)
-
-
+            self.list_name_horse.append(settings.name_horse())
+        print(self.list_name_horse)

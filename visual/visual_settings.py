@@ -5,14 +5,25 @@ pygame.init()
 Параметры главного окна class Game
 """
 """Размер главного окна"""
-size_main_x, size_main_y = 1600, 800
-SIZE_MAIN_WINDOWS = (size_main_x, size_main_y)
+size_main_x, size_main_y = 1600, 1050
+MAIN_SIZE_WINDOWS = (size_main_x, size_main_y)
 """Заголовок окна"""
-NAME_MAIN_WINDOWS = "_HorseRacer_"
+MAIN_NAME_WINDOWS = "_HorseRacer_"
 """Икона окна"""
-ICON_WINDOWS = None
+MAIN_ICON_WINDOWS = None
 """Шрифт и размер для теста"""
 MAIN_FONT = pygame.font.SysFont('arial', 32)
+"""Картинка and подложки"""
+MAIN_BG = pygame.image.load("media//bg_1.png")
+MAIN_ROAD = pygame.image.load("media//road_2.png")
+MAIN_TRACTOR = pygame.image.load("media//tractor.png")
+
+"""цвет кнопка"""
+MAIN_BUTTON_INACTIVE_COLOR = (150, 150, 150)
+MAIN_BUTTON_ACTIVE_COLOR = (200, 200, 200)
+MAIN_BUTTON_TEXT_COLOR = (0, 0, 0)
+"""Цвет текста имен"""
+MAIN_NAME_TEXT_COLOR = (100, 255, 255)
 
 
 """
@@ -33,13 +44,13 @@ SW_TEXT_NUM_PLAYERS = "Введите количество играков (2-8)"
 SW_START_BG_COLOR = (240, 240, 240)
 SW_START_TEXT_COLOR = (0, 0, 0)
 SW_INPUT_FIELD_COLOR = (255, 255, 255)
-SW_BUTTON_INACTIVE_COLOR = (150,150,150)
-SW_BUTTON_ACTIVE_COLOR = (200,200,200)
-SW_BUTTON_TEXT_COLOR = (0,0,0)
+SW_BUTTON_INACTIVE_COLOR = (150, 150, 150)
+SW_BUTTON_ACTIVE_COLOR = (200, 200, 200)
+SW_BUTTON_TEXT_COLOR = (0, 0, 0)
 
 
 """
 Обшие значения
 """
 """FPS var"""
-FPS_VAR = 30
+FPS_VAR = 24
