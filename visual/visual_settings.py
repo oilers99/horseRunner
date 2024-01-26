@@ -8,15 +8,18 @@ pygame.init()
 size_main_x, size_main_y = 1600, 1050
 MAIN_SIZE_WINDOWS = (size_main_x, size_main_y)
 """Заголовок окна"""
-MAIN_NAME_WINDOWS = "_HorseRacer_"
+MAIN_NAME_WINDOWS = "_HorseRacing_1.0"
 """Икона окна"""
-MAIN_ICON_WINDOWS = None
+MAIN_ICON_WINDOWS = pygame.image.load("media//icon.png")
 """Шрифт и размер для теста"""
 MAIN_FONT = pygame.font.SysFont('arial', 32)
 """Картинка and подложки"""
 MAIN_BG = pygame.image.load("media//bg_1.png")
 MAIN_ROAD = pygame.image.load("media//road_2.png")
 MAIN_TRACTOR = pygame.image.load("media//tractor.png")
+MAIN_START_LINE = pygame.image.load("media//start_line.png")
+MAIN_FINISH_LINE = pygame.image.load("media//finish_line.png")
+MAIN_TITLE = pygame.image.load("media//title.png")
 
 """цвет кнопка"""
 MAIN_BUTTON_INACTIVE_COLOR = (150, 150, 150)
@@ -33,7 +36,7 @@ MAIN_NAME_TEXT_COLOR = (100, 255, 255)
 size_start_x, size_start_y = 350, 200
 SW_SIZE_START_WINDOWS = (size_start_x, size_start_y)
 """Заголовок окна"""
-SW_NAME_START_WINDOWS = "_HorseRacer_"
+SW_NAME_START_WINDOWS = "_HorseRacing_1.0"
 """Икона окна"""
 SW_ICON_START_WINDOWS = None
 """Шрифт и размер для теста"""
@@ -48,9 +51,8 @@ SW_BUTTON_INACTIVE_COLOR = (150, 150, 150)
 SW_BUTTON_ACTIVE_COLOR = (200, 200, 200)
 SW_BUTTON_TEXT_COLOR = (0, 0, 0)
 
-
 """
 Обшие значения
 """
 """FPS var"""
-FPS_VAR = 30
+FPS_VAR = 25

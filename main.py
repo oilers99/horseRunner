@@ -1,10 +1,10 @@
 import creator_horse
 import settings
+import visual.visual
 
 
 def main():
-    # creator_horse.creator()
-    pass
+    visual.visual.StartWindows()
 
 if __name__ == "__main__":
     main()

@@ -33,6 +33,7 @@ class StartWindows:
         pygame.display.set_caption(visual_settings.SW_NAME_START_WINDOWS)
         self.font = visual_settings.SW_FONT_START_WINDOWS
         os.environ['SDL_VIDEO_CENTERED'] = '1'
+        pygame.display.set_icon(visual_settings.MAIN_ICON_WINDOWS)
 
     def launch(self):
         while self.running:
@@ -136,7 +137,9 @@ class MainWindows:
 
     def draw(self):
         self.draw_bg_imege()
+        self.draw_title()
         self.draw_roads()
+        self.draw_lines_start_finish()
         self.draw_name_horses()
         self.button_start.draw(self.screen, self.font)
         self.draw_horses()
@@ -145,10 +148,20 @@ class MainWindows:
     def draw_bg_imege(self):
         self.screen.blit(visual_settings.MAIN_BG, (0, 0))
 
+    def draw_title(self):
+        self.screen.blit(visual_settings.MAIN_TITLE, (0,0))
+
     def draw_roads(self):
         poss_y = 290
         for i in range(int(self.number_of_players)):
             self.screen.blit(visual_settings.MAIN_ROAD, (100, poss_y))
+            poss_y += 80
+
+    def draw_lines_start_finish(self):
+        poss_y = 290
+        for i in range(int(self.number_of_players)):
+            self.screen.blit(visual_settings.MAIN_START_LINE, (195, poss_y))
+            self.screen.blit(visual_settings.MAIN_FINISH_LINE, (1435, poss_y))
             poss_y += 80
 
     def draw_name_horses(self):
@@ -161,6 +174,10 @@ class MainWindows:
             poss_y += 80
 
     def draw_horses(self):
+        """
+        долбаный хард
+
+        """
         vin_line = 1350
         start_random = 0
         stop_random = 3
@@ -282,6 +299,9 @@ class MainWindows:
                     self.start_press = False
 
 
+class NewGame:
+    pass
+
 class Prompt:
     """
     поле ввода текста
@@ -389,4 +409,4 @@ class Button:
             self.tmp_color = self.inactive_color
 
 
-start_windows = StartWindows()
+# start_windows = StartWindows()
