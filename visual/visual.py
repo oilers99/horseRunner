@@ -26,7 +26,6 @@ class StartWindows:
                                 massage="OK",
                                 massage_color=visual_settings.SW_BUTTON_TEXT_COLOR)
         self.horse_creator = creator_horse.Creator()
-
         self.launch()
 
     def set_up_canvas(self):
@@ -95,6 +94,15 @@ class MainWindows:
         self.clock = pygame.time.Clock()
         self.set_up_canvas()
         self.poss_x = 110
+        self.poss_x_1 = 110
+        self.poss_x_2 = 110
+        self.poss_x_3 = 110
+        self.poss_x_4 = 110
+        self.poss_x_5 = 110
+        self.poss_x_6 = 110
+        self.poss_x_7 = 110
+        self.poss_x_8 = 110
+
         self.launch()
 
     def set_up_canvas(self):
@@ -115,13 +123,15 @@ class MainWindows:
                 self.running = False
             if event.type == pygame.KEYDOWN:
                 self.kay_press(event.key)
-            # if event.type == pygame.MOUSEBUTTONDOWN:
-            #     self.kay_press(event.button)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.kay_press(event.button)
 
     def kay_press(self, key):
         if key == pygame.K_ESCAPE:
             self.running = False
         if key == pygame.K_RETURN:
+            self.start_press = True
+        if key == 1:
             self.start_press = True
 
     def draw(self):
@@ -151,15 +161,125 @@ class MainWindows:
             poss_y += 80
 
     def draw_horses(self):
+        vin_line = 1350
+        start_random = 0
+        stop_random = 3
         self.poss_y = 290
-        for i in range(int(self.number_of_players)):
-            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x, self.poss_y))
-            self.poss_y += 80
-            if self.start_press == True:
-                self.move_poss_x()
 
-    def move_poss_x(self):
-        self.poss_x += random.randint(-5, 10)
+        if int(self.number_of_players) == 2:
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_1, self.poss_y ))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_2, self.poss_y + 80))
+            if self.start_press == True:
+                self.poss_x_1 += random.randint(start_random, stop_random)
+                self.poss_x_2 += random.randint(start_random, stop_random)
+                super_pos = max(self.poss_x_1, self.poss_x_2)
+                if super_pos >= vin_line:
+                    self.start_press = False
+
+        elif int(self.number_of_players) == 3:
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_1, self.poss_y))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_2, self.poss_y + 80))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_3, self.poss_y + 160))
+            if self.start_press == True:
+                self.poss_x_1 += random.randint(start_random, stop_random)
+                self.poss_x_2 += random.randint(start_random, stop_random)
+                self.poss_x_3 += random.randint(start_random, stop_random)
+                super_pos = max(self.poss_x_1, self.poss_x_2, self.poss_x_3)
+                if super_pos >= vin_line:
+                    self.start_press = False
+
+        elif int(self.number_of_players) == 4:
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_1, self.poss_y))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_2, self.poss_y + 80))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_3, self.poss_y + 160))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_4, self.poss_y + 240))
+            if self.start_press == True:
+                self.poss_x_1 += random.randint(start_random, stop_random)
+                self.poss_x_2 += random.randint(start_random, stop_random)
+                self.poss_x_3 += random.randint(start_random, stop_random)
+                self.poss_x_4 += random.randint(start_random, stop_random)
+                super_pos = max(self.poss_x_1, self.poss_x_2, self.poss_x_3, self.poss_x_4)
+                if super_pos >= vin_line:
+                    self.start_press = False
+
+        elif int(self.number_of_players) == 5:
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_1, self.poss_y))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_2, self.poss_y + 80))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_3, self.poss_y + 160))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_4, self.poss_y + 240))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_5, self.poss_y + 320))
+            if self.start_press == True:
+                self.poss_x_1 += random.randint(start_random, stop_random)
+                self.poss_x_2 += random.randint(start_random, stop_random)
+                self.poss_x_3 += random.randint(start_random, stop_random)
+                self.poss_x_4 += random.randint(start_random, stop_random)
+                self.poss_x_5 += random.randint(start_random, stop_random)
+                super_pos = max(self.poss_x_1, self.poss_x_2, self.poss_x_3, self.poss_x_4, self.poss_x_5)
+                if super_pos >= vin_line:
+                    self.start_press = False
+
+        elif int(self.number_of_players) == 6:
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_1, self.poss_y))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_2, self.poss_y + 80))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_3, self.poss_y + 160))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_4, self.poss_y + 240))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_5, self.poss_y + 320))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_6, self.poss_y + 400))
+            if self.start_press == True:
+                self.poss_x_1 += random.randint(start_random, stop_random)
+                self.poss_x_2 += random.randint(start_random, stop_random)
+                self.poss_x_3 += random.randint(start_random, stop_random)
+                self.poss_x_4 += random.randint(start_random, stop_random)
+                self.poss_x_5 += random.randint(start_random, stop_random)
+                self.poss_x_6 += random.randint(start_random, stop_random)
+                super_pos = max(self.poss_x_1, self.poss_x_2, self.poss_x_3, self.poss_x_4, self.poss_x_5,
+                                self.poss_x_6)
+                if super_pos >= vin_line:
+                    self.start_press = False
+
+        elif int(self.number_of_players) == 7:
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_1, self.poss_y))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_2, self.poss_y + 80))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_3, self.poss_y + 160))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_4, self.poss_y + 240))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_5, self.poss_y + 320))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_6, self.poss_y + 400))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_7, self.poss_y + 480))
+            if self.start_press == True:
+                self.poss_x_1 += random.randint(start_random, stop_random)
+                self.poss_x_2 += random.randint(start_random, stop_random)
+                self.poss_x_3 += random.randint(start_random, stop_random)
+                self.poss_x_4 += random.randint(start_random, stop_random)
+                self.poss_x_5 += random.randint(start_random, stop_random)
+                self.poss_x_6 += random.randint(start_random, stop_random)
+                self.poss_x_7 += random.randint(start_random, stop_random)
+                super_pos = max(self.poss_x_1, self.poss_x_2, self.poss_x_3, self.poss_x_4, self.poss_x_5,
+                                self.poss_x_6, self.poss_x_7)
+                if super_pos >= vin_line:
+                    self.start_press = False
+
+        elif int(self.number_of_players) == 8:
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_1, self.poss_y))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_2, self.poss_y + 80))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_3, self.poss_y + 160))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_4, self.poss_y + 240))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_5, self.poss_y + 320))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_6, self.poss_y + 400))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_7, self.poss_y + 480))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_8, self.poss_y + 560))
+            if self.start_press == True:
+                self.poss_x_1 += random.randint(start_random, stop_random)
+                self.poss_x_2 += random.randint(start_random, stop_random)
+                self.poss_x_3 += random.randint(start_random, stop_random)
+                self.poss_x_4 += random.randint(start_random, stop_random)
+                self.poss_x_5 += random.randint(start_random, stop_random)
+                self.poss_x_6 += random.randint(start_random, stop_random)
+                self.poss_x_7 += random.randint(start_random, stop_random)
+                self.poss_x_8 += random.randint(start_random, stop_random)
+                super_pos = max(self.poss_x_1, self.poss_x_2, self.poss_x_3, self.poss_x_4, self.poss_x_5,
+                                self.poss_x_6, self.poss_x_7, self.poss_x_8)
+                if super_pos >= vin_line:
+                    self.start_press = False
 
 
 class Prompt:
@@ -267,21 +387,6 @@ class Button:
                 self.tmp_color = self.inactive_color
         else:
             self.tmp_color = self.inactive_color
-
-
-# class Horses:
-#     def __init__(self, pos_x, pos_y, image):
-#         self.pos_x = pos_x
-#         self.pos_y = pos_y
-#         self.image = image
-#
-#     def draw_horse(self, screen):
-#         screen.blit(self.image, (self.pos_x, self.pos_y))
-#
-#
-#
-#     def move(self):
-#         self.pos_x += 1
 
 
 start_windows = StartWindows()

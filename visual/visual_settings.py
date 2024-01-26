@@ -53,4 +53,4 @@ SW_BUTTON_TEXT_COLOR = (0, 0, 0)
 Обшие значения
 """
 """FPS var"""
-FPS_VAR = 24
+FPS_VAR = 30
