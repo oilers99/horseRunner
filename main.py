@@ -4,7 +4,7 @@ import visual.visual
 
 
 def main():
-    visual.visual.StartWindows()
+    visual.visual.start_game()
 
 if __name__ == "__main__":
     main()

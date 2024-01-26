@@ -409,4 +409,4 @@ class Button:
             self.tmp_color = self.inactive_color
 
 
-# start_windows = StartWindows()
+StartWindows()
