@@ -1,3 +1,4 @@
+
 import pygame
 import creator_horse
 import visual_settings
@@ -25,7 +26,7 @@ class StartWindows:
                                 active_color=visual_settings.SW_BUTTON_ACTIVE_COLOR,
                                 massage="OK",
                                 massage_color=visual_settings.SW_BUTTON_TEXT_COLOR)
-        self.horse_creator = creator_horse.Creator()
+        # self.horse_creator = creator_horse.Creator()
         self.launch()
 
     def set_up_canvas(self):
@@ -149,7 +150,7 @@ class MainWindows:
         self.screen.blit(visual_settings.MAIN_BG, (0, 0))
 
     def draw_title(self):
-        self.screen.blit(visual_settings.MAIN_TITLE, (0,0))
+        self.screen.blit(visual_settings.MAIN_TITLE, (0, 0))
 
     def draw_roads(self):
         poss_y = 290
@@ -184,7 +185,7 @@ class MainWindows:
         self.poss_y = 290
 
         if int(self.number_of_players) == 2:
-            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_1, self.poss_y ))
+            self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_1, self.poss_y))
             self.screen.blit(visual_settings.MAIN_TRACTOR, (self.poss_x_2, self.poss_y + 80))
             if self.start_press == True:
                 self.poss_x_1 += random.randint(start_random, stop_random)
@@ -302,6 +303,7 @@ class MainWindows:
 class NewGame:
     pass
 
+
 class Prompt:
     """
     поле ввода текста
@@ -408,5 +410,3 @@ class Button:
         else:
             self.tmp_color = self.inactive_color
 
-
-StartWindows()

@@ -10,16 +10,16 @@ MAIN_SIZE_WINDOWS = (size_main_x, size_main_y)
 """Заголовок окна"""
 MAIN_NAME_WINDOWS = "_HorseRacing_1.0"
 """Икона окна"""
-MAIN_ICON_WINDOWS = pygame.image.load("media//icon.png")
+MAIN_ICON_WINDOWS = pygame.image.load("C:\\Users\\oliers\\PycharmProjects\\horseRunner_1\\visual\\media\\icon.png")
 """Шрифт и размер для теста"""
 MAIN_FONT = pygame.font.SysFont('arial', 32)
 """Картинка and подложки"""
-MAIN_BG = pygame.image.load("media//bg_1.png")
-MAIN_ROAD = pygame.image.load("media//road_2.png")
-MAIN_TRACTOR = pygame.image.load("media//tractor.png")
-MAIN_START_LINE = pygame.image.load("media//start_line.png")
-MAIN_FINISH_LINE = pygame.image.load("media//finish_line.png")
-MAIN_TITLE = pygame.image.load("media//title.png")
+MAIN_BG = pygame.image.load("C:\\Users\\oliers\\PycharmProjects\\horseRunner_1\\visual\\media\\bg_1.png")
+MAIN_ROAD = pygame.image.load("C:\\Users\\oliers\\PycharmProjects\\horseRunner_1\\visual\\media\\road_2.png")
+MAIN_TRACTOR = pygame.image.load("C:\\Users\\oliers\\PycharmProjects\\horseRunner_1\\visual\\media\\tractor.png")
+MAIN_START_LINE = pygame.image.load("C:\\Users\\oliers\\PycharmProjects\\horseRunner_1\\visual\\media\\start_line.png")
+MAIN_FINISH_LINE = pygame.image.load("C:\\Users\\oliers\\PycharmProjects\\horseRunner_1\\visual\\media\\finish_line.png")
+MAIN_TITLE = pygame.image.load("C:\\Users\\oliers\\PycharmProjects\\horseRunner_1\\visual\\media\\title.png")
 
 """цвет кнопка"""
 MAIN_BUTTON_INACTIVE_COLOR = (150, 150, 150)

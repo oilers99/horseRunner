@@ -1,10 +1,9 @@
-import creator_horse
-import settings
-import visual.visual
+from visual import visual
 
 
 def main():
-    visual.visual.start_game()
+    visual.StartWindows()
+
 
 if __name__ == "__main__":
     main()
