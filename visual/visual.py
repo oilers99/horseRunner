@@ -26,7 +26,6 @@ class StartWindows:
                                 active_color=visual_settings.SW_BUTTON_ACTIVE_COLOR,
                                 massage="OK",
                                 massage_color=visual_settings.SW_BUTTON_TEXT_COLOR)
-        # self.horse_creator = creator_horse.Creator()
         self.launch()
 
     def set_up_canvas(self):
@@ -306,7 +305,7 @@ class NewGame:
 
 class Prompt:
     """
-    поле ввода текста
+    Поле ввода текста
     """
 
     def __init__(self, input_field_color, rect, centre_x, centre_y, text_color):
@@ -341,7 +340,7 @@ class Prompt:
 
 class Text:
     """
-    отрисовка текста на окне
+    Отрисовка текста на окне
     """
     def __init__(self, font, text, color_text, pos_x, pos_y, screen):
         """
@@ -374,10 +373,10 @@ class Button:
         @param rect: размер поля ввода кортеж (х, у, длинна, ширина)
         @param pos_x: поза по Х
         @param pos_y: поза по У
-        @param inactive_color: неактивный цвет (РГБ)
-        @param active_color: цвет при наведение (РГБ)
+        @param inactive_color: не активный цвет (РГБ)
+        @param active_color: цвет при наведении (РГБ)
         @param massage: текст кнопки
-        @param massage_color: цвет ткста (РГБ)
+        @param massage_color: цвет текста (РГБ)
         """
         self.rect = rect
         self.pos_x = pos_x
@@ -392,7 +391,7 @@ class Button:
     def draw(self, screen, font):
         """
         @param screen: где рисовать self.screen
-        @param font: параметрт шрифта self.font
+        @param font: параметр шрифта self.font
         """
         pygame.draw.rect(screen, self.tmp_color, self.rect)
         text_input = font.render(self.massage, True, self.massage_color)
