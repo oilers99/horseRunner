@@ -2,9 +2,11 @@ import random
 """
 Настройки лошади
 """
+
+
 def name_horse():
     """
-    Список имен лошадей
+    Список имен лошадей.
     Генерирует случайное имя из списка
     """
     name_horse_list = ["Mr.Putin", "Абрамович", "РосКосмос", "Covid", "Санкции", "Мама Стифлера", "ЯжМать",
@@ -33,14 +35,16 @@ def name_horse():
     name_horse_list.remove(name_horse_random)
     return str(name_horse_random)
 
+
 def power_horse():
     """
-    Сила лошоди (как долго может бежать с максимальной скоростью)
+    Сила лошади (как долго может бежать с максимальной скоростью)
     """
     return random.randint(50, 150)
 
+
 def max_speed_horse():
     """
-    Скорость лошоди (максимальная)
+    Скорость лошади (максимальная)
     """
     return random.randint(70, 120)

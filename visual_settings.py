@@ -41,8 +41,8 @@ SW_NAME_START_WINDOWS = "_HorseRacing_1.0"
 SW_ICON_START_WINDOWS = None
 """Шрифт и размер для теста"""
 SW_FONT_START_WINDOWS = pygame.font.SysFont('arial', 20)
-"""Текст запроса количества играков"""
-SW_TEXT_NUM_PLAYERS = "Введите количество играков (2-8)"
+"""Текст запроса количества игроков"""
+SW_TEXT_NUM_PLAYERS = "Введите количество игроков (2-8)"
 """цвет стартового окна"""
 SW_START_BG_COLOR = (240, 240, 240)
 SW_START_TEXT_COLOR = (0, 0, 0)
